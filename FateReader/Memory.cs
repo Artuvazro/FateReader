@@ -74,13 +74,13 @@ namespace FateReader
 
             cleanText = text.Replace("\0", string.Empty);
             cleanText = Regex.Replace(cleanText, "%(s|n|ch).*?i[0-9]", string.Empty);
-            cleanText = Regex.Replace(cleanText, "　", "\r\n");
+            cleanText = Regex.Replace(cleanText, "(。|」)　", "$1\r\n");
             cleanText = Regex.Replace(cleanText, "%l[0-9],0", "ー");
             cleanText = Regex.Replace(cleanText, "%n", "▼");
+            cleanText = Regex.Replace(cleanText, "(。|」)「", "$1\r\n「");
 
             return cleanText;
         }
         #endregion
-
     }
 }
